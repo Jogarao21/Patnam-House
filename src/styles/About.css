@@ -1,0 +1,524 @@
+/* =====================================================
+   ABOUT SECTION - REFINED PROFESSIONAL DESIGN
+===================================================== */
+
+.about {
+  position: relative;
+  background: linear-gradient(135deg, #FAFAFA 0%, #F5F5F5 100%);
+  padding: 90px 0 110px;
+  overflow: hidden;
+}
+
+/* =====================================================
+   SECTION HEADER
+===================================================== */
+
+.about__header {
+  text-align: center;
+  margin-bottom: 60px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.about--visible .about__header {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.about__label {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #D4AF37;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.about__label::before,
+.about__label::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 28px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #D4AF37);
+}
+
+.about__label::before {
+  right: calc(100% + 14px);
+}
+
+.about__label::after {
+  left: calc(100% + 14px);
+  background: linear-gradient(90deg, #D4AF37, transparent);
+}
+
+.about__title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.7rem, 3.8vw, 2.8rem);
+  font-weight: 700;
+  color: #1A5E5E;
+  margin-bottom: 22px;
+  line-height: 1.3;
+  max-width: 850px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.about__divider {
+  width: 110px;
+  height: 2.5px;
+  background: linear-gradient(90deg, transparent, #D4AF37, #E5C158, #D4AF37, transparent);
+  margin: 0 auto;
+  box-shadow: 0 2px 15px rgba(212, 175, 55, 0.4);
+  border-radius: 2px;
+  animation: glowPulse 3s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow: 0 2px 15px rgba(212, 175, 55, 0.4);
+  }
+  50% {
+    box-shadow: 0 4px 22px rgba(212, 175, 55, 0.6);
+  }
+}
+
+/* =====================================================
+   CONTAINER & ROWS
+===================================================== */
+
+.about__container {
+  max-width: 1350px;
+  margin: 0 auto;
+  padding: 0 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 70px;
+}
+
+.about__row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 35px;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(35px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.about--visible .about__row {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.about--visible .about__row:nth-child(2) {
+  transition-delay: 0.2s;
+}
+
+.about--visible .about__row:nth-child(3) {
+  transition-delay: 0.4s;
+}
+
+.about--visible .about__row:nth-child(4) {
+  transition-delay: 0.6s;
+}
+
+/* =====================================================
+   CONTENT BLOCKS
+===================================================== */
+
+.about__content {
+  padding: 15px 0;
+}
+
+.about__subtitle {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.45rem, 2.7vw, 1.95rem);
+  font-weight: 600;
+  color: #1A5E5E;
+  margin-bottom: 18px;
+  line-height: 1.3;
+}
+
+.about__text-divider {
+  width: 55px;
+  height: 2px;
+  background: linear-gradient(90deg, #D4AF37, transparent);
+  margin-bottom: 22px;
+}
+
+.about__text {
+  font-size: clamp(0.98rem, 1.8vw, 1.08rem);
+  line-height: 1.75;
+  color: #4A4A4A;
+  font-weight: 400;
+  letter-spacing: 0.2px;
+  margin-bottom: 26px;
+}
+
+.about__text strong {
+  color: #1A5E5E;
+  font-weight: 600;
+}
+
+.about__text em {
+  color: #D4AF37;
+  font-style: italic;
+  font-weight: 500;
+}
+
+/* =====================================================
+   FEATURE BADGES (COMPACT)
+===================================================== */
+
+.about__feature-small {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 16px 18px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 11px;
+  border-left: 3px solid #D4AF37;
+  box-shadow: 0 3px 18px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+}
+
+.about__feature-small:hover {
+  background: #FFFFFF;
+  transform: translateX(5px);
+  box-shadow: 0 5px 22px rgba(212, 175, 55, 0.15);
+}
+
+.about__feature-icon-small {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #D4AF37, #E5C158);
+  border-radius: 9px;
+  color: #FFFFFF;
+  box-shadow: 0 3px 13px rgba(212, 175, 55, 0.25);
+}
+
+.about__feature-icon-small svg {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+}
+
+.about__feature-title-small {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #1A5E5E;
+  margin-bottom: 3px;
+}
+
+.about__feature-desc-small {
+  font-size: 0.84rem;
+  color: #666;
+  line-height: 1.5;
+}
+
+/* =====================================================
+   IMAGE WRAPPERS (35% SMALLER)
+===================================================== */
+
+.about__image-wrapper {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 12px 42px rgba(0, 0, 0, 0.14);
+  height: 290px;
+}
+
+.about__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.about__image-wrapper:hover .about__image {
+  transform: scale(1.05);
+}
+
+.about__image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg, 
+    rgba(212, 175, 55, 0.12) 0%, 
+    rgba(26, 94, 94, 0.08) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.about__image-wrapper:hover .about__image-overlay {
+  opacity: 1;
+}
+
+.about__image-wrapper::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.3), transparent);
+  pointer-events: none;
+}
+
+/* =====================================================
+   CTA BUTTON (PREMIUM ATTRACTIVE DESIGN)
+===================================================== */
+
+.about__cta {
+  text-align: center;
+  margin-top: 20px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.about--visible .about__cta {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.8s;
+}
+
+.about__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(135deg, #D4AF37, #E5C158);
+  color: #FFFFFF;
+  border: none;
+  padding: 16px 38px;
+  border-radius: 50px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  box-shadow: 0 6px 25px rgba(212, 175, 55, 0.35);
+  position: relative;
+  overflow: hidden;
+}
+
+.about__btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.6s ease;
+}
+
+.about__btn:hover::before {
+  left: 100%;
+}
+
+.about__btn:hover {
+  background: linear-gradient(135deg, #E5C158, #D4AF37);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(212, 175, 55, 0.5);
+}
+
+.about__btn-icon {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s ease;
+}
+
+.about__btn:hover .about__btn-icon {
+  transform: translateX(5px);
+}
+
+/* =====================================================
+   MOBILE (up to 768px) - IMAGE FIRST, TEXT BELOW
+===================================================== */
+@media (max-width: 768px) {
+  .about {
+    padding: 70px 0 80px;
+  }
+
+  .about__header {
+    margin-bottom: 45px;
+  }
+
+  .about__container {
+    padding: 0 18px;
+    gap: 50px;
+  }
+
+  .about__row {
+    gap: 25px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* IMAGE ALWAYS FIRST ON MOBILE */
+  .about__row--normal .about__image-wrapper,
+  .about__row--reverse .about__image-wrapper {
+    order: 1;
+  }
+
+  .about__row--normal .about__content,
+  .about__row--reverse .about__content {
+    order: 2;
+  }
+
+  .about__image-wrapper {
+    height: 240px;
+  }
+
+  .about__subtitle {
+    font-size: 1.4rem;
+  }
+
+  .about__text {
+    margin-bottom: 22px;
+    font-size: 0.96rem;
+    line-height: 1.7;
+  }
+
+  .about__btn {
+    padding: 14px 32px;
+    font-size: 0.95rem;
+  }
+}
+
+/* =====================================================
+   TABLET (769px - 1024px) - IMAGE FIRST, TEXT BELOW
+===================================================== */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .about {
+    padding: 85px 0 95px;
+  }
+
+  .about__container {
+    padding: 0 25px;
+    gap: 60px;
+  }
+
+  .about__row {
+    gap: 30px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* IMAGE ALWAYS FIRST ON TABLET */
+  .about__row--normal .about__image-wrapper,
+  .about__row--reverse .about__image-wrapper {
+    order: 1;
+  }
+
+  .about__row--normal .about__content,
+  .about__row--reverse .about__content {
+    order: 2;
+  }
+
+  .about__image-wrapper {
+    height: 310px;
+  }
+}
+
+/* =====================================================
+   DESKTOP (1025px and above) - ZIG-ZAG LAYOUT
+===================================================== */
+@media (min-width: 1025px) {
+  .about {
+    padding: 110px 0 130px;
+  }
+
+  .about__container {
+    padding: 0 50px;
+    gap: 85px;
+  }
+
+  .about__row {
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 60px;
+  }
+
+  /* Normal: Content LEFT, Image RIGHT */
+  .about__row--normal {
+    grid-template-columns: 1.2fr 0.8fr;
+  }
+
+  /* Reverse: Image LEFT, Content RIGHT */
+  .about__row--reverse {
+    grid-template-columns: 0.8fr 1.2fr;
+  }
+
+  .about__row--reverse .about__content {
+    order: 2;
+  }
+
+  .about__row--reverse .about__image-wrapper {
+    order: 1;
+  }
+
+  .about__image-wrapper {
+    height: 340px;
+  }
+}
+
+/* =====================================================
+   LARGE DESKTOP (1440px and above)
+===================================================== */
+@media (min-width: 1440px) {
+  .about__container {
+    padding: 0 70px;
+    gap: 100px;
+  }
+
+  .about__row {
+    gap: 75px;
+  }
+
+  .about__image-wrapper {
+    height: 380px;
+  }
+}
+
+/* =====================================================
+   ACCESSIBILITY
+===================================================== */
+
+.about__btn:focus {
+  outline: 3px solid #D4AF37;
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .about__image {
+    transform: none !important;
+  }
+
+  .about__btn::before {
+    display: none;
+  }
+}

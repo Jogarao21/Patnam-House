@@ -1,0 +1,813 @@
+/* =====================================================
+   RESERVATION PAGE - 30% SMALLER CALENDAR + NO DOUBLE BORDER
+===================================================== */
+
+.reservation {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0A2F4F 0%, #1A5E5E 100%);
+  padding: 90px 0 50px;
+  position: relative;
+}
+
+.reservation__container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.reservation__title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.6rem, 4.5vw, 2.5rem);
+  font-weight: 700;
+  color: #D4AF37;
+  text-align: center;
+  margin-bottom: 6px;
+}
+
+.reservation__subtitle {
+  font-size: clamp(0.9rem, 2.3vw, 1.1rem);
+  color: #E5C158;
+  text-align: center;
+  margin-bottom: 25px;
+  font-weight: 300;
+}
+
+/* =====================================================
+   LAYOUT
+===================================================== */
+
+.reservation__content {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  align-items: center;
+}
+
+/* =====================================================
+   CALENDAR SECTION - 30% SMALLER
+===================================================== */
+
+.reservation__calendar-section {
+  width: 100%;
+  max-width: 210px;
+}
+
+.reservation__calendar {
+  background: #1A5E5E;
+  border-radius: 12px;
+  padding: 13px 11px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  border: 2px solid rgba(212, 175, 55, 0.2);
+}
+
+/* Logo - 30% SMALLER */
+.reservation__logo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.reservation__logo img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: 2px solid #D4AF37;
+  object-fit: cover;
+  box-shadow: 0 3px 12px rgba(212, 175, 55, 0.3);
+}
+
+.reservation__calendar-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  text-align: center;
+  margin-bottom: 11px;
+}
+
+/* Month Navigation - 30% SMALLER */
+.reservation__month-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #0F4A4A;
+  padding: 6px 8px;
+  border-radius: 7px;
+  margin-bottom: 10px;
+  min-height: 27px;
+}
+
+.reservation__month-year {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  text-transform: capitalize;
+  flex: 1;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0 3px;
+}
+
+.reservation__nav-btn {
+  background: transparent;
+  border: none;
+  color: #D4AF37;
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 0 5px;
+  transition: all 0.3s ease;
+  line-height: 1;
+  flex-shrink: 0;
+  min-width: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+}
+
+.reservation__nav-btn:hover {
+  color: #E5C158;
+  transform: scale(1.1);
+}
+
+.reservation__nav-btn:focus {
+  outline: none;
+}
+
+/* Day Names - 30% SMALLER */
+.reservation__day-names {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 3px;
+  margin-bottom: 4px;
+}
+
+.reservation__day-name {
+  font-size: 0.55rem;
+  font-weight: 600;
+  color: #E5C158;
+  text-align: center;
+  padding: 3px 0;
+}
+
+/* Calendar Grid - 30% SMALLER */
+.reservation__calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 3px;
+}
+
+.reservation__day {
+  aspect-ratio: 1;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 4px;
+  color: #FFFFFF;
+  font-size: 0.58rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+}
+
+.reservation__day:hover:not(.reservation__day--disabled) {
+  background: rgba(212, 175, 55, 0.2);
+  border-color: #D4AF37;
+  transform: scale(1.05);
+}
+
+.reservation__day:focus {
+  outline: none;
+}
+
+.reservation__day--empty {
+  background: transparent;
+  border: none;
+  cursor: default;
+}
+
+.reservation__day--today {
+  background: rgba(229, 193, 88, 0.2);
+  border: 2px solid #E5C158;
+  font-weight: 700;
+}
+
+.reservation__day--selected {
+  background: #0F4A4A;
+  border: 2px solid #D4AF37;
+  color: #D4AF37;
+  font-weight: 700;
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.4);
+}
+
+.reservation__day--disabled {
+  background: rgba(255, 255, 255, 0.03);
+  color: rgba(255, 255, 255, 0.3);
+  border-color: transparent;
+  cursor: not-allowed;
+}
+
+/* =====================================================
+   TIME SLOTS SECTION - 25% SMALLER SPOTS TEXT
+===================================================== */
+
+.reservation__timeslots-section {
+  width: 100%;
+  max-width: 300px;
+}
+
+.reservation__timeslots {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 400px;
+  overflow-y: auto;
+  padding-right: 5px;
+}
+
+/* Custom Scrollbar */
+.reservation__timeslots::-webkit-scrollbar {
+  width: 6px;
+}
+
+.reservation__timeslots::-webkit-scrollbar-track {
+  background: rgba(212, 175, 55, 0.1);
+  border-radius: 10px;
+}
+
+.reservation__timeslots::-webkit-scrollbar-thumb {
+  background: #D4AF37;
+  border-radius: 10px;
+}
+
+.reservation__timeslot {
+  background: #1A5E5E;
+  border: 2px solid rgba(212, 175, 55, 0.3);
+  border-radius: 30px;
+  padding: 11px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
+  outline: none;
+}
+
+.reservation__timeslot:hover:not(:disabled) {
+  background: rgba(212, 175, 55, 0.1);
+  border-color: #D4AF37;
+  transform: translateX(4px);
+  box-shadow: 0 5px 18px rgba(212, 175, 55, 0.3);
+}
+
+.reservation__timeslot:focus {
+  outline: none;
+}
+
+.reservation__timeslot--selected {
+  background: #0F4A4A;
+  border: 2.5px solid #D4AF37;
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+}
+
+.reservation__timeslot--low {
+  border-color: rgba(255, 100, 100, 0.5);
+}
+
+.reservation__timeslot:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.reservation__time {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.reservation__timeslot--selected .reservation__time {
+  color: #D4AF37;
+}
+
+/* 25% SMALLER SPOTS TEXT */
+.reservation__spots {
+  font-size: 0.56rem;
+  font-weight: 500;
+  color: #E5C158;
+}
+
+.reservation__timeslot--low .reservation__spots {
+  color: #FF6B6B;
+  font-weight: 600;
+}
+
+/* =====================================================
+   CONFIRM SECTION
+===================================================== */
+
+.reservation__confirm {
+  margin-top: 20px;
+  text-align: center;
+  animation: fadeInUp 0.5s ease;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reservation__confirm-btn {
+  background: linear-gradient(135deg, #D4AF37 0%, #E5C158 100%);
+  color: #0A2F4F;
+  border: none;
+  border-radius: 40px;
+  padding: 13px 35px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  outline: none;
+}
+
+.reservation__confirm-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.6);
+}
+
+.reservation__confirm-btn:focus {
+  outline: none;
+}
+
+.reservation__confirm-icon {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+}
+
+.reservation__selected-info {
+  margin-top: 10px;
+  font-size: 0.85rem;
+  color: #E5C158;
+  font-weight: 500;
+}
+
+/* =====================================================
+   TABLET (481px - 768px) - 30% SMALLER CALENDAR
+===================================================== */
+@media (min-width: 481px) and (max-width: 768px) {
+  .reservation {
+    padding: 100px 0 60px;
+  }
+
+  .reservation__title {
+    font-size: 2rem;
+  }
+
+  .reservation__subtitle {
+    font-size: 1rem;
+    margin-bottom: 30px;
+  }
+
+  .reservation__content {
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 25px;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  /* 30% SMALLER */
+  .reservation__calendar-section {
+    max-width: 224px;
+    flex: 1;
+  }
+
+  .reservation__timeslots-section {
+    max-width: 320px;
+    flex: 1;
+  }
+
+  .reservation__calendar {
+    padding: 14px 12px;
+  }
+
+  .reservation__logo img {
+    width: 39px;
+    height: 39px;
+  }
+
+  .reservation__calendar-title {
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+  }
+
+  .reservation__month-nav {
+    padding: 6px 8px;
+  }
+
+  .reservation__month-year {
+    font-size: 0.73rem;
+  }
+
+  .reservation__nav-btn {
+    font-size: 1.15rem;
+  }
+
+  .reservation__day-names {
+    gap: 4px;
+  }
+
+  .reservation__day-name {
+    font-size: 0.58rem;
+    padding: 4px 0;
+  }
+
+  .reservation__calendar-grid {
+    gap: 4px;
+  }
+
+  .reservation__day {
+    font-size: 0.6rem;
+  }
+
+  .reservation__timeslots {
+    max-height: 450px;
+    gap: 11px;
+  }
+
+  .reservation__timeslot {
+    padding: 12px 20px;
+  }
+
+  .reservation__time {
+    font-size: 1.05rem;
+  }
+
+  /* 25% SMALLER */
+  .reservation__spots {
+    font-size: 0.6rem;
+  }
+
+  .reservation__confirm-btn {
+    padding: 14px 38px;
+    font-size: 1rem;
+  }
+
+  .reservation__confirm-icon {
+    width: 19px;
+    height: 19px;
+  }
+
+  .reservation__selected-info {
+    font-size: 0.88rem;
+  }
+}
+
+/* =====================================================
+   TABLET LARGE (769px - 1024px) - 30% SMALLER
+===================================================== */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .reservation {
+    padding: 110px 0 70px;
+  }
+
+  .reservation__title {
+    font-size: 2.3rem;
+  }
+
+  .reservation__subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 35px;
+  }
+
+  .reservation__content {
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 30px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  /* 30% SMALLER */
+  .reservation__calendar-section {
+    max-width: 252px;
+    flex: 1;
+  }
+
+  .reservation__timeslots-section {
+    max-width: 360px;
+    flex: 1;
+  }
+
+  .reservation__calendar {
+    padding: 17px 14px;
+  }
+
+  .reservation__logo img {
+    width: 42px;
+    height: 42px;
+  }
+
+  .reservation__calendar-title {
+    font-size: 0.98rem;
+    margin-bottom: 13px;
+  }
+
+  .reservation__month-nav {
+    padding: 7px 9px;
+  }
+
+  .reservation__month-year {
+    font-size: 0.77rem;
+  }
+
+  .reservation__nav-btn {
+    font-size: 1.2rem;
+  }
+
+  .reservation__day-names {
+    gap: 4px;
+  }
+
+  .reservation__day-name {
+    font-size: 0.6rem;
+    padding: 4px 0;
+  }
+
+  .reservation__calendar-grid {
+    gap: 4px;
+  }
+
+  .reservation__day {
+    font-size: 0.63rem;
+  }
+
+  .reservation__timeslots {
+    max-height: 500px;
+    gap: 12px;
+  }
+
+  .reservation__timeslot {
+    padding: 13px 22px;
+  }
+
+  .reservation__time {
+    font-size: 1.1rem;
+  }
+
+  /* 25% SMALLER */
+  .reservation__spots {
+    font-size: 0.62rem;
+  }
+
+  .reservation__confirm-btn {
+    padding: 15px 40px;
+    font-size: 1.02rem;
+  }
+
+  .reservation__confirm-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .reservation__selected-info {
+    font-size: 0.9rem;
+  }
+}
+
+/* =====================================================
+   DESKTOP (1025px and above) - 30% SMALLER
+===================================================== */
+@media (min-width: 1025px) {
+  .reservation {
+    padding: 130px 0 90px;
+  }
+
+  .reservation__title {
+    font-size: 2.6rem;
+  }
+
+  .reservation__subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+  }
+
+  .reservation__content {
+    flex-direction: row;
+    gap: 140px;
+    max-width: 950px;
+    margin: 0 auto;
+  }
+
+  /* 30% SMALLER */
+  .reservation__calendar-section {
+    max-width: 343px;
+    flex: 1;
+  }
+
+  .reservation__timeslots-section {
+    max-width: 420px;
+    flex: 1;
+  }
+
+  .reservation__calendar {
+    padding: 20px 17px;
+  }
+
+  .reservation__logo img {
+    width: 46px;
+    height: 46px;
+  }
+
+  .reservation__calendar-title {
+    font-size: 1.05rem;
+    margin-bottom: 14px;
+  }
+
+  .reservation__month-nav {
+    padding: 8px 10px;
+  }
+
+  .reservation__month-year {
+    font-size: 0.82rem;
+  }
+
+  .reservation__nav-btn {
+    font-size: 1.28rem;
+    padding: 0 6px;
+  }
+
+  .reservation__day-names {
+    gap: 5px;
+  }
+
+  .reservation__day-name {
+    font-size: 0.63rem;
+  }
+
+  .reservation__calendar-grid {
+    gap: 5px;
+  }
+
+  .reservation__day {
+    font-size: 0.7rem;
+  }
+
+  .reservation__timeslots {
+    max-height: 550px;
+    gap: 13px;
+  }
+
+  .reservation__timeslot {
+    padding: 15px 25px;
+  }
+
+  .reservation__time {
+    font-size: 1.15rem;
+  }
+
+  /* 25% SMALLER */
+  .reservation__spots {
+    font-size: 0.64rem;
+  }
+
+  .reservation__confirm-btn {
+    padding: 16px 43px;
+    font-size: 1.05rem;
+  }
+
+  .reservation__confirm-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .reservation__selected-info {
+    font-size: 0.92rem;
+  }
+}
+
+/* =====================================================
+   LARGE DESKTOP (1440px and above) - 30% SMALLER
+===================================================== */
+@media (min-width: 1440px) {
+  .reservation__content {
+    gap: 50px;
+    max-width: 1100px;
+  }
+
+  /* 30% SMALLER */
+  .reservation__calendar-section {
+    max-width: 336px;
+  }
+
+  .reservation__timeslots-section {
+    max-width: 480px;
+  }
+
+  .reservation__calendar {
+    padding: 22px 20px;
+  }
+
+  .reservation__logo img {
+    width: 49px;
+    height: 49px;
+  }
+
+  .reservation__calendar-title {
+    font-size: 1.13rem;
+  }
+
+  .reservation__month-year {
+    font-size: 0.86rem;
+  }
+
+  .reservation__nav-btn {
+    font-size: 1.36rem;
+  }
+
+  .reservation__day-names {
+    gap: 6px;
+  }
+
+  .reservation__day-name {
+    font-size: 0.65rem;
+  }
+
+  .reservation__calendar-grid {
+    gap: 6px;
+  }
+
+  .reservation__day {
+    font-size: 0.72rem;
+  }
+
+  .reservation__timeslots {
+    max-height: 580px;
+    gap: 14px;
+  }
+
+  .reservation__timeslot {
+    padding: 16px 28px;
+  }
+
+  .reservation__time {
+    font-size: 1.2rem;
+  }
+
+  /* 25% SMALLER */
+  .reservation__spots {
+    font-size: 0.66rem;
+  }
+}
+
+/* =====================================================
+   REMOVE DOUBLE BORDER - GLOBAL FIX
+===================================================== */
+
+button:focus,
+button:active,
+.reservation__day:focus,
+.reservation__day:active,
+.reservation__timeslot:focus,
+.reservation__timeslot:active,
+.reservation__nav-btn:focus,
+.reservation__nav-btn:active,
+.reservation__confirm-btn:focus,
+.reservation__confirm-btn:active {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* =====================================================
+   ACCESSIBILITY (WITHOUT DOUBLE BORDER)
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}

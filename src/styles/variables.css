@@ -1,0 +1,44 @@
+:root {
+  /* Primary Colors from Logo */
+  --teal-primary: #1A5E5E;
+  --teal-dark: #134646;
+  --teal-light: #2A7575;
+  --teal-overlay: rgba(26, 94, 94, 0.85);
+  
+  /* Gold Accent */
+  --gold-primary: #D4AF37;
+  --gold-light: #E5C158;
+  --gold-dark: #B8941F;
+  
+  /* Neutral Colors */
+  --cream: #F8F6F0;
+  --white: #FFFFFF;
+  --black: #1A1A1A;
+  --gray: #666666;
+  --light-gray: #E0E0E0;
+  
+  /* Shadows & Effects */
+  --shadow-soft: 0 4px 20px rgba(26, 94, 94, 0.1);
+  --shadow-medium: 0 8px 30px rgba(26, 94, 94, 0.15);
+  --shadow-gold: 0 4px 15px rgba(212, 175, 55, 0.3);
+  --shadow-card: 0 10px 40px rgba(26, 94, 94, 0.2);
+  
+  /* Typography */
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Inter', sans-serif;
+  
+  /* Spacing */
+  --section-padding: 80px 20px;
+  --container-max: 1200px;
+  --border-radius: 8px;
+  
+  /* Transitions */
+  --transition-fast: 0.3s ease;
+  --transition-smooth: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (max-width: 768px) {
+  :root {
+    --section-padding: 50px 20px;
+  }
+}

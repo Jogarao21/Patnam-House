@@ -1,0 +1,772 @@
+/* =====================================================
+   REVIEWS SECTION - HYBRID LAYOUT
+===================================================== */
+
+.reviews {
+  position: relative;
+  background: linear-gradient(135deg, #0A2F4F 0%, #134646 50%, #1A5E5E 100%);
+  padding: 90px 0 110px;
+  overflow: hidden;
+}
+
+.reviews__container {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* =====================================================
+   SECTION HEADER
+===================================================== */
+
+.reviews__header {
+  text-align: center;
+  margin-bottom: 55px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reviews--visible .reviews__header {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reviews__label {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #D4AF37;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.reviews__label::before,
+.reviews__label::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 28px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #D4AF37);
+}
+
+.reviews__label::before {
+  right: calc(100% + 14px);
+}
+
+.reviews__label::after {
+  left: calc(100% + 14px);
+  background: linear-gradient(90deg, #D4AF37, transparent);
+}
+
+.reviews__title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.9rem, 4.5vw, 3.2rem);
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 18px;
+  line-height: 1.2;
+}
+
+.reviews__subtitle {
+  font-size: clamp(0.9rem, 1.8vw, 1.08rem);
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 750px;
+  margin: 0 auto 28px;
+  font-weight: 400;
+}
+
+.reviews__divider {
+  width: 110px;
+  height: 2.5px;
+  background: linear-gradient(90deg, transparent, #D4AF37, #E5C158, #D4AF37, transparent);
+  margin: 0 auto;
+  box-shadow: 0 2px 18px rgba(212, 175, 55, 0.5);
+  border-radius: 2px;
+}
+
+/* =====================================================
+   CAROUSEL CONTAINER
+===================================================== */
+
+.reviews__carousel {
+  position: relative;
+  margin-bottom: 55px;
+  padding: 18px 0;
+}
+
+/* =====================================================
+   CARD STYLES - UNIVERSAL
+===================================================== */
+
+.reviews__card-inner {
+  position: relative;
+  background: rgba(255, 255, 255, 0.09);
+  backdrop-filter: blur(15px);
+  border: 1.5px solid rgba(212, 175, 55, 0.35);
+  border-radius: 14px;
+  padding: 18px 16px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 
+    0 6px 25px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+
+.reviews__card-inner:hover {
+  transform: translateY(-6px) scale(1.02);
+  border-color: #D4AF37;
+  background: rgba(255, 255, 255, 0.13);
+  box-shadow: 
+    0 12px 40px rgba(212, 175, 55, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+/* Card Glow Effect */
+.reviews__card-glow {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.12) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.reviews__card-inner:hover .reviews__card-glow {
+  opacity: 1;
+}
+
+/* =====================================================
+   STAR RATING
+===================================================== */
+
+.reviews__rating {
+  display: flex;
+  gap: 3px;
+  margin-bottom: 12px;
+  justify-content: center;
+}
+
+.reviews__star {
+  width: 14px;
+  height: 14px;
+  color: #D4AF37;
+  filter: drop-shadow(0 1px 6px rgba(212, 175, 55, 0.5));
+  transition: all 0.3s ease;
+}
+
+.reviews__card-inner:hover .reviews__star {
+  transform: scale(1.1);
+  filter: drop-shadow(0 3px 10px rgba(212, 175, 55, 0.7));
+}
+
+/* =====================================================
+   REVIEW TEXT
+===================================================== */
+
+.reviews__text {
+  font-size: 0.73rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.88);
+  text-align: center;
+  font-weight: 400;
+  margin-bottom: auto;
+  flex: 1;
+  font-style: italic;
+}
+
+.reviews__text-divider {
+  width: 40px;
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+  margin: 12px auto;
+}
+
+/* =====================================================
+   AUTHOR INFO
+===================================================== */
+
+.reviews__author {
+  text-align: center;
+  margin-top: auto;
+}
+
+.reviews__name {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #D4AF37;
+  margin-bottom: 4px;
+}
+
+.reviews__meta {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.62);
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* =====================================================
+   TRUST STRIP - DEFAULT (MOBILE FIRST)
+===================================================== */
+
+.reviews__trust {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 22px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 35px 28px;
+  background: rgba(15, 74, 74, 0.5);
+  backdrop-filter: blur(10px);
+  border-radius: 18px;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.reviews__trust-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.reviews__trust-icon {
+  width: 38px;
+  height: 38px;
+  color: #D4AF37;
+  stroke: #D4AF37;
+  flex-shrink: 0;
+  filter: drop-shadow(0 2px 8px rgba(212, 175, 55, 0.4));
+}
+
+.reviews__trust-value {
+  display: block;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #D4AF37;
+  line-height: 1.2;
+}
+
+.reviews__trust-label {
+  display: block;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.75);
+  margin-top: 3px;
+}
+
+/* =====================================================
+   GOOGLE REVIEW CTA BUTTON
+===================================================== */
+
+.reviews__cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.reviews__google-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  background: #ffffff;
+  border-radius: 12px;
+  text-decoration: none;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.12),
+    0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+.reviews__google-btn:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 8px 24px rgba(212, 175, 55, 0.35),
+    0 4px 10px rgba(0, 0, 0, 0.15);
+  border-color: rgba(212, 175, 55, 0.5);
+}
+
+/* Google G icon section */
+.reviews__google-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  margin: 10px 12px;
+}
+
+/* Vertical divider between G logo and content */
+.reviews__btn-divider {
+  display: block;
+  width: 1px;
+  height: 32px;
+  background: rgba(0, 0, 0, 0.12);
+  flex-shrink: 0;
+}
+
+/* Right section: stars + text */
+.reviews__btn-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  padding: 8px 14px 8px 12px;
+}
+
+.reviews__btn-stars {
+  display: flex;
+  gap: 1px;
+}
+
+.reviews__btn-stars svg {
+  width: 11px;
+  height: 11px;
+}
+
+.reviews__btn-rating {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #3c4043;
+  white-space: nowrap;
+  letter-spacing: 0.1px;
+}
+
+
+/* =====================================================
+   BACKGROUND DECORATIVE ELEMENTS
+===================================================== */
+
+.reviews__bg-decor {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.06;
+  pointer-events: none;
+  filter: blur(80px);
+}
+
+.reviews__bg-decor--1 {
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(circle, #D4AF37 0%, transparent 70%);
+  top: 10%;
+  right: -140px;
+  animation: float 12s ease-in-out infinite;
+}
+
+.reviews__bg-decor--2 {
+  width: 380px;
+  height: 380px;
+  background: radial-gradient(circle, #E5C158 0%, transparent 70%);
+  bottom: 10%;
+  left: -90px;
+  animation: float 10s ease-in-out infinite reverse;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(-28px) translateX(18px);
+  }
+}
+
+/* =====================================================
+   MOBILE (up to 768px) - STATIC GRID
+===================================================== */
+@media (max-width: 768px) {
+  .reviews {
+    padding: 70px 0 85px;
+  }
+
+  .reviews__container {
+    padding: 0 15px;
+  }
+
+  .reviews__header {
+    margin-bottom: 45px;
+  }
+
+  .reviews__carousel {
+    margin-bottom: 45px;
+    padding: 0;
+    overflow: visible;
+  }
+
+  /* STATIC GRID - NO ANIMATION */
+  .reviews__track {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    animation: none !important;
+  }
+
+  .reviews__card {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .reviews__card-inner {
+    padding: 20px 18px;
+    height: auto;
+    min-height: 260px;
+  }
+
+  .reviews__rating {
+    gap: 4px;
+    margin-bottom: 14px;
+  }
+
+  .reviews__star {
+    width: 15px;
+    height: 15px;
+  }
+
+  .reviews__text {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    -webkit-line-clamp: unset;
+    display: block;
+    margin-bottom: 14px;
+  }
+
+  .reviews__text-divider {
+    width: 45px;
+    margin: 14px auto;
+  }
+
+  .reviews__name {
+    font-size: 0.95rem;
+    margin-bottom: 5px;
+  }
+
+  .reviews__meta {
+    font-size: 0.78rem;
+  }
+
+  /* TRUST BADGES - MOBILE */
+  .reviews__trust {
+    grid-template-columns: 1fr;
+    padding: 28px 22px;
+    gap: 20px;
+  }
+
+  .reviews__trust-item {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .reviews__trust-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .reviews__trust-value {
+    font-size: 1.25rem;
+  }
+
+  .reviews__trust-label {
+    font-size: 0.8rem;
+  }
+}
+
+/* =====================================================
+   TABLET (481px - 768px) - 2 COLUMNS REVIEWS
+===================================================== */
+@media (min-width: 481px) and (max-width: 768px) {
+  .reviews__track {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .reviews__card {
+    max-width: none;
+  }
+
+  .reviews__card-inner {
+    min-height: 280px;
+    height: auto;
+  }
+}
+
+/* =====================================================
+   DESKTOP (769px and above) - INFINITE SCROLL + HORIZONTAL TRUST
+===================================================== */
+@media (min-width: 769px) {
+  .reviews__carousel {
+    overflow: hidden;
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 5%,
+      black 95%,
+      transparent
+    );
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 5%,
+      black 95%,
+      transparent
+    );
+  }
+
+  .reviews__track {
+    display: flex;
+    align-items: stretch;
+    gap: 20px;
+    width: max-content;
+    animation: infiniteScroll 40s linear infinite;
+    will-change: transform;
+  }
+
+  .reviews__track--paused {
+    animation-play-state: paused;
+  }
+
+  /* 
+   * Each card = 240px wide + 20px gap = 260px per card
+   * 5 unique reviews × 260px = 1300px = one full set
+   * translateX(-1300px) moves exactly 1 set → seamless loop
+   */
+  @keyframes infiniteScroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-1300px);
+    }
+  }
+
+  .reviews__card {
+    flex-shrink: 0;
+    width: 240px;
+    display: flex;
+  }
+
+  .reviews__card-inner {
+    min-height: 235px;
+  }
+
+  /* HORIZONTAL TRUST STRIP ON DESKTOP */
+  .reviews__trust {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    padding: 40px 35px;
+  }
+
+  .reviews__trust-item {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* =====================================================
+   DESKTOP (1025px and above)
+===================================================== */
+@media (min-width: 1025px) {
+  .reviews {
+    padding: 110px 0 130px;
+  }
+
+  .reviews__container {
+    padding: 0 40px;
+  }
+
+  .reviews__card {
+    width: 255px;
+    display: flex;
+  }
+
+  .reviews__card-inner {
+    padding: 20px 18px;
+    min-height: 245px;
+    width: 100%;
+  }
+
+  /*
+   * Each card = 255px wide + 20px gap = 275px per card
+   * 5 unique reviews × 275px = 1375px = one full set
+   */
+  @keyframes infiniteScroll {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-1375px); }
+  }
+
+  .reviews__name {
+    font-size: 0.95rem;
+  }
+}
+
+
+/* =====================================================
+   LARGE DESKTOP (1440px and above)
+===================================================== */
+@media (min-width: 1440px) {
+  .reviews__container {
+    padding: 0 60px;
+  }
+
+  .reviews__card {
+    width: 270px;
+    display: flex;
+  }
+
+  .reviews__card-inner {
+    min-height: 250px;
+    width: 100%;
+  }
+
+  /*
+   * Each card = 270px wide + 20px gap = 290px per card
+   * 5 unique reviews × 290px = 1450px = one full set
+   */
+  @keyframes infiniteScroll {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-1450px); }
+  }
+}
+
+/* =====================================================
+   ACCESSIBILITY
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .reviews__track {
+    animation: none !important;
+  }
+  
+  * {
+    transition: none !important;
+  }
+}
+
+/* =====================================================
+   LIVE BADGE
+===================================================== */
+
+.reviews__live-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(52, 168, 83, 0.15);
+  border: 1px solid rgba(52, 168, 83, 0.4);
+  color: #4ade80;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 16px;
+}
+
+.reviews__live-dot {
+  width: 7px;
+  height: 7px;
+  background: #4ade80;
+  border-radius: 50%;
+  animation: livePulse 1.5s ease-in-out infinite;
+}
+
+@keyframes livePulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.8); }
+}
+
+/* =====================================================
+   AUTHOR PHOTO & AVATAR
+===================================================== */
+
+.reviews__author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.reviews__author-photo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(212, 175, 55, 0.4);
+  flex-shrink: 0;
+}
+
+.reviews__author-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #D4AF37, #B8922E);
+  color: #0A2F4F;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  border: 2px solid rgba(212, 175, 55, 0.4);
+}
+
+/* =====================================================
+   LOADING SKELETON
+===================================================== */
+
+.reviews__loading {
+  display: flex;
+  gap: 24px;
+  overflow: hidden;
+  padding: 20px 0 40px;
+  justify-content: center;
+}
+
+.reviews__skeleton-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(212, 175, 55, 0.1);
+  border-radius: 16px;
+  padding: 28px;
+  min-width: 300px;
+  flex: 1;
+  max-width: 360px;
+}
+
+.reviews__skeleton-line {
+  height: 14px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.05) 25%, rgba(255,255,255,0.12) 50%, rgba(255,255,255,0.05) 75%);
+  background-size: 200% 100%;
+  border-radius: 6px;
+  margin-bottom: 12px;
+  animation: shimmer 1.5s infinite;
+  width: 100%;
+}
+
+.reviews__skeleton-line--short {
+  width: 40%;
+  height: 10px;
+}
+
+.reviews__skeleton-line--medium {
+  width: 65%;
+  height: 10px;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+

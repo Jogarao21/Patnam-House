@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Patnam House</title>
+    <script>
+      // SPA fallback: store the current path and redirect to index.html
+      // This handles direct URL access on hosts that don't support SPA rewrites
+      var path = window.location.pathname;
+      sessionStorage.setItem('spa_redirect', path);
+      window.location.replace('/');
+    </script>
+  </head>
+  <body>
+    Redirecting...
+  </body>
+</html>

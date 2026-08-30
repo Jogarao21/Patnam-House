@@ -1,0 +1,567 @@
+/* =====================================================
+   CUISINES SECTION - CIRCULAR IMAGES + COMPACT
+===================================================== */
+
+.cuisines {
+  position: relative;
+  background: linear-gradient(135deg, #0A2F4F 0%, #134646 50%, #1A5E5E 100%);
+  padding: 70px 0 90px;
+  overflow: hidden;
+}
+
+.cuisines__container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 18px;
+}
+
+/* =====================================================
+   SECTION HEADER
+===================================================== */
+
+.cuisines__header {
+  text-align: center;
+  margin-bottom: 45px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cuisines--visible .cuisines__header {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.cuisines__label {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #D4AF37;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 14px;
+  position: relative;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.cuisines__label::before,
+.cuisines__label::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 22px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #D4AF37);
+}
+
+.cuisines__label::before {
+  right: calc(100% + 10px);
+}
+
+.cuisines__label::after {
+  left: calc(100% + 10px);
+  background: linear-gradient(90deg, #D4AF37, transparent);
+}
+
+.cuisines__title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.7rem, 4.2vw, 2.8rem);
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 14px;
+  line-height: 1.2;
+}
+
+.cuisines__subtitle {
+  font-size: clamp(0.85rem, 1.7vw, 1rem);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 700px;
+  margin: 0 auto 22px;
+  font-weight: 400;
+}
+
+.cuisines__divider {
+  width: 90px;
+  height: 2.5px;
+  background: linear-gradient(90deg, transparent, #D4AF37, #E5C158, #D4AF37, transparent);
+  margin: 0 auto;
+  box-shadow: 0 2px 16px rgba(212, 175, 55, 0.5);
+  border-radius: 2px;
+  animation: glowPulse 3s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow: 0 2px 16px rgba(212, 175, 55, 0.5);
+  }
+  50% {
+    box-shadow: 0 3px 22px rgba(212, 175, 55, 0.8);
+  }
+}
+
+/* =====================================================
+   CUISINE CARDS GRID - MOBILE OPTIMIZED
+===================================================== */
+
+.cuisines__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+  margin-bottom: 45px;
+}
+
+.cuisines__card {
+  opacity: 0;
+  transform: translateY(40px) scale(0.95);
+  animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.cuisines--visible .cuisines__card {
+  animation-play-state: running;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.cuisines__card-inner {
+  position: relative;
+  background: rgba(26, 94, 94, 0.4);
+  backdrop-filter: blur(20px);
+  border: 2px solid rgba(212, 175, 55, 0.3);
+  border-radius: 14px;
+  padding: 16px;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  box-shadow: 
+    0 6px 25px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.cuisines__card:hover .cuisines__card-inner {
+  transform: translateY(-5px);
+  border-color: #D4AF37;
+  background: rgba(26, 94, 94, 0.6);
+  box-shadow: 
+    0 12px 45px rgba(212, 175, 55, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+/* Card Glow Effect */
+.cuisines__card-glow {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.cuisines__card:hover .cuisines__card-glow {
+  opacity: 1;
+}
+
+/* =====================================================
+   CIRCULAR IMAGE - SMALL & ELEGANT
+===================================================== */
+
+.cuisines__image {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  margin: 0 auto 14px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 
+    0 6px 20px rgba(0, 0, 0, 0.4),
+    0 0 0 3px rgba(212, 175, 55, 0.3);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cuisines__card:hover .cuisines__image {
+  box-shadow: 
+    0 8px 28px rgba(212, 175, 55, 0.5),
+    0 0 0 4px #D4AF37;
+  transform: scale(1.05);
+}
+
+.cuisines__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cuisines__card:hover .cuisines__image img {
+  transform: scale(1.1);
+}
+
+.cuisines__image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(26, 94, 94, 0.3));
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.cuisines__card:hover .cuisines__image-overlay {
+  opacity: 1;
+}
+
+/* =====================================================
+   CARD CONTENT - ULTRA COMPACT
+===================================================== */
+
+.cuisines__card-content {
+  text-align: center;
+}
+
+.cuisines__card-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.15rem, 2.3vw, 1.4rem);
+  font-weight: 700;
+  color: #D4AF37;
+  margin-bottom: 5px;
+}
+
+.cuisines__card-tagline {
+  font-size: clamp(0.78rem, 1.2vw, 0.88rem);
+  font-style: italic;
+  color: #E5C158;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.cuisines__card-description {
+  font-size: clamp(0.8rem, 1.25vw, 0.88rem);
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 12px;
+  padding: 0 5px;
+}
+
+/* =====================================================
+   HIGHLIGHTS - ULTRA COMPACT
+===================================================== */
+
+.cuisines__highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.cuisines__highlight-item {
+  display: inline-block;
+  background: rgba(212, 175, 55, 0.15);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  color: #E5C158;
+  padding: 3px 9px;
+  border-radius: 14px;
+  font-size: 0.74rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.cuisines__card:hover .cuisines__highlight-item {
+  background: rgba(212, 175, 55, 0.25);
+  border-color: #D4AF37;
+  color: #FFFFFF;
+}
+
+/* =====================================================
+   EXPLORE BUTTON - COMPACT
+===================================================== */
+
+.cuisines__explore-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: transparent;
+  border: 2px solid #D4AF37;
+  color: #D4AF37;
+  padding: 8px 20px;
+  border-radius: 18px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-top: 6px;
+}
+
+.cuisines__card:hover .cuisines__explore-btn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.cuisines__explore-btn:hover {
+  background: linear-gradient(135deg, #D4AF37, #E5C158);
+  color: #134646;
+  border-color: #E5C158;
+  box-shadow: 0 3px 14px rgba(212, 175, 55, 0.4);
+}
+
+.cuisines__arrow {
+  width: 13px;
+  height: 13px;
+  transition: transform 0.3s ease;
+}
+
+.cuisines__explore-btn:hover .cuisines__arrow {
+  transform: translateX(3px);
+}
+
+/* =====================================================
+   TRUST STRIP - COMPACT
+===================================================== */
+
+.cuisines__trust {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  max-width: 800px;
+  margin: 0 auto 45px;
+  padding: 26px 16px;
+  background: rgba(15, 74, 74, 0.5);
+  border-radius: 12px;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.cuisines__trust-item {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  justify-content: center;
+}
+
+.cuisines__trust-icon {
+  width: 26px;
+  height: 26px;
+  stroke: #D4AF37;
+  flex-shrink: 0;
+}
+
+.cuisines__trust-text {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+/* =====================================================
+   CTA BUTTON - COMPACT
+===================================================== */
+
+.cuisines__cta {
+  text-align: center;
+}
+
+.cuisines__menu-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: transparent;
+  border: 2px solid #D4AF37;
+  color: #D4AF37;
+  padding: 9px 24px;
+  border-radius: 22px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 18px rgba(212, 175, 55, 0.3);
+}
+
+.cuisines__menu-btn:hover {
+  background: linear-gradient(135deg, #D4AF37, #E5C158);
+  color: #134646;
+  transform: translateY(-2px);
+  box-shadow: 0 7px 25px rgba(212, 175, 55, 0.5);
+}
+
+.cuisines__menu-icon {
+  width: 15px;
+  height: 15px;
+  transition: transform 0.3s ease;
+}
+
+.cuisines__menu-btn:hover .cuisines__menu-icon {
+  transform: translateX(4px);
+}
+
+/* =====================================================
+   BACKGROUND DECORATIVE ELEMENTS
+===================================================== */
+
+.cuisines__bg-decor {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.06;
+  pointer-events: none;
+  filter: blur(80px);
+}
+
+.cuisines__bg-decor--1 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, #D4AF37 0%, transparent 70%);
+  top: 10%;
+  right: -130px;
+  animation: slowFloat 12s ease-in-out infinite;
+}
+
+.cuisines__bg-decor--2 {
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, #E5C158 0%, transparent 70%);
+  bottom: 10%;
+  left: -90px;
+  animation: slowFloat 10s ease-in-out infinite reverse;
+}
+
+@keyframes slowFloat {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(-30px) translateX(20px);
+  }
+}
+
+/* =====================================================
+   MOBILE ENHANCEMENTS (up to 480px)
+===================================================== */
+@media (max-width: 480px) {
+  .cuisines {
+    padding: 60px 0 80px;
+  }
+
+  .cuisines__container {
+    padding: 0 15px;
+  }
+
+  .cuisines__grid {
+    gap: 16px;
+  }
+
+  .cuisines__card-inner {
+    padding: 14px;
+  }
+
+  .cuisines__image {
+    width: 85px;
+    height: 85px;
+  }
+
+  .cuisines__card-description {
+    font-size: 0.78rem;
+    line-height: 1.5;
+  }
+}
+
+/* =====================================================
+   TABLET (769px - 1024px) - 2 CARDS PER ROW
+===================================================== */
+@media (min-width: 769px) {
+  .cuisines__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+  }
+
+  .cuisines__image {
+    width: 100px;
+    height: 100px;
+  }
+
+  .cuisines__trust {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+  }
+
+  .cuisines__trust-item {
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+  }
+}
+
+/* =====================================================
+   DESKTOP (1025px and above) - 3 CARDS PER ROW
+===================================================== */
+@media (min-width: 1025px) {
+  .cuisines {
+    padding: 90px 0 110px;
+  }
+
+  .cuisines__container {
+    padding: 0 35px;
+  }
+
+  .cuisines__grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+  }
+
+  .cuisines__card-inner {
+    padding: 18px;
+  }
+
+  .cuisines__image {
+    width: 110px;
+    height: 110px;
+  }
+}
+
+/* =====================================================
+   LARGE DESKTOP (1440px and above)
+===================================================== */
+@media (min-width: 1440px) {
+  .cuisines__container {
+    padding: 0 50px;
+  }
+
+  .cuisines__grid {
+    gap: 28px;
+  }
+
+  .cuisines__image {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+/* =====================================================
+   ACCESSIBILITY
+===================================================== */
+
+.cuisines__explore-btn:focus,
+.cuisines__menu-btn:focus {
+  outline: 3px solid #D4AF37;
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}

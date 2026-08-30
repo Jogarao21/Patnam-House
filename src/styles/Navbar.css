@@ -1,0 +1,450 @@
+/* =====================================================
+   NAVBAR - MOBILE FIRST RESPONSIVE DESIGN
+===================================================== */
+
+/* BASE STYLES */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: transparent;
+  padding: 12px 0;
+  transition: all 0.3s ease;
+}
+
+.navbar--sticky {
+  background: #1A5E5E;
+  box-shadow: 0 4px 20px rgba(26, 94, 94, 0.4);
+  padding: 10px 0;
+}
+
+.navbar__container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+/* =====================================================
+   LOGO
+===================================================== */
+.navbar__logo {
+  position: relative;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.navbar__logo-img {
+  width: 55px;
+  height: 55px;
+  border-radius: 8px;
+  border: 2px solid #D4AF37;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+  transition: all 0.3s ease;
+  object-fit: cover;
+}
+
+.navbar--sticky .navbar__logo-img {
+  width: 48px;
+  height: 48px;
+}
+
+.navbar__logo-img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+}
+
+.navbar__logo-tooltip {
+  position: absolute;
+  left: 65px;
+  top: 50%;
+  transform: translateY(-50%) translateX(-10px);
+  background: rgba(26, 94, 94, 0.95);
+  color: #D4AF37;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.navbar__logo:hover .navbar__logo-tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-50%) translateX(0);
+}
+
+/* =====================================================
+   DESKTOP MENU
+===================================================== */
+.navbar__menu {
+  display: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar__item {
+  margin: 0;
+}
+
+.navbar__link {
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 8px 0;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  display: inline-block;
+}
+
+.navbar--sticky .navbar__link {
+  color: #FFFFFF;
+}
+
+.navbar__link:hover {
+  color: #D4AF37;
+}
+
+/* =====================================================
+   RESERVE BUTTON - DESKTOP & TABLET
+===================================================== */
+.navbar__btn {
+  display: none;
+  background: linear-gradient(135deg, #D4AF37 0%, #E5C158 100%);
+  color: #1A5E5E;
+  border: 2px solid #D4AF37;
+  padding: 10px 24px;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+}
+
+.navbar__btn:hover {
+  background: transparent;
+  color: #D4AF37;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+}
+
+.navbar__btn-text {
+  display: inline;
+}
+
+.navbar__icon {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+  flex-shrink: 0;
+}
+
+/* =====================================================
+   HAMBURGER MENU
+===================================================== */
+.navbar__hamburger {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background: transparent;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.navbar__hamburger span {
+  width: 28px;
+  height: 3px;
+  background: #000000;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+.navbar--sticky .navbar__hamburger span {
+  background: #D4AF37;
+}
+
+.navbar__hamburger--active span:nth-child(1) {
+  transform: rotate(45deg) translate(8px, 8px);
+}
+
+.navbar__hamburger--active span:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar__hamburger--active span:nth-child(3) {
+  transform: rotate(-45deg) translate(8px, -8px);
+}
+
+/* =====================================================
+   MOBILE MENU SIDEBAR
+===================================================== */
+.navbar__item--mobile-only {
+  display: none;
+}
+
+.navbar__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 998;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* =====================================================
+   MOBILE STYLES (up to 768px)
+===================================================== */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 10px 0;
+  }
+
+  .navbar--sticky {
+    padding: 8px 0;
+  }
+
+  .navbar__container {
+    padding: 0 15px;
+  }
+
+  .navbar__logo-img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .navbar--sticky .navbar__logo-img {
+    width: 45px;
+    height: 45px;
+  }
+
+  .navbar__logo-tooltip {
+    display: none;
+  }
+
+  /* Mobile Sidebar Menu - HALF SCREEN */
+  .navbar__menu {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 50%;
+    max-width: 280px;
+    height: 100vh;
+    background: #1A5E5E;
+    padding: 80px 20px 30px;
+    transform: translateX(-100%);
+    transition: transform 0.4s ease;
+    overflow-y: auto;
+    z-index: 999;
+    gap: 0;
+  }
+
+  .navbar__menu--active {
+    transform: translateX(0);
+    box-shadow: 5px 0 30px rgba(0, 0, 0, 0.5);
+  }
+
+  .navbar__item {
+    width: 100%;
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+
+  .navbar__menu--active .navbar__item {
+    animation: slideIn 0.4s ease forwards;
+  }
+
+  .navbar__menu--active .navbar__item:nth-child(1) { animation-delay: 0.05s; }
+  .navbar__menu--active .navbar__item:nth-child(2) { animation-delay: 0.1s; }
+  .navbar__menu--active .navbar__item:nth-child(3) { animation-delay: 0.15s; }
+  .navbar__menu--active .navbar__item:nth-child(4) { animation-delay: 0.2s; }
+  .navbar__menu--active .navbar__item:nth-child(5) { animation-delay: 0.25s; }
+  .navbar__menu--active .navbar__item:nth-child(6) { animation-delay: 0.3s; }
+  .navbar__menu--active .navbar__item:nth-child(7) { animation-delay: 0.35s; }
+  .navbar__menu--active .navbar__item:nth-child(8) { animation-delay: 0.4s; }
+
+  @keyframes slideIn {
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .navbar__link {
+    display: block;
+    padding: 14px 20px;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    color: #FFFFFF;
+  }
+
+  .navbar__link:hover {
+    background: rgba(212, 175, 55, 0.15);
+    transform: translateX(5px);
+    color: #D4AF37;
+  }
+
+  /* Mobile Reserve Button */
+  .navbar__item--mobile-only {
+    display: block;
+    margin-top: 20px;
+  }
+
+  .navbar__btn-mobile {
+    width: 100%;
+    background: linear-gradient(135deg, #D4AF37 0%, #E5C158 100%);
+    color: #1A5E5E;
+    border: 2px solid #D4AF37;
+    padding: 14px 24px;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+    transition: all 0.3s ease;
+  }
+
+  .navbar__btn-mobile:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+  }
+
+  .navbar__btn-mobile .navbar__icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  /* Show only icon for Reserve on mobile navbar */
+  .navbar__btn {
+    display: flex;
+    background: transparent;
+    border: none;
+    padding: 8px;
+    box-shadow: none;
+    margin-right: 5px;
+    margin-left: auto;
+  }
+
+  .navbar__btn:hover {
+    background: transparent;
+    transform: none;
+    box-shadow: none;
+  }
+
+  .navbar__btn-text {
+    display: none;
+  }
+
+  .navbar__btn .navbar__icon {
+    width: 26px;
+    height: 26px;
+    stroke: #000000;
+  }
+
+  .navbar--sticky .navbar__btn .navbar__icon {
+    stroke: #D4AF37;
+  }
+}
+
+/* =====================================================
+   TABLET STYLES (769px - 1024px)
+===================================================== */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .navbar__hamburger {
+    display: none;
+  }
+
+  .navbar__menu {
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .navbar__link {
+    font-size: 0.95rem;
+  }
+}
+
+/* =====================================================
+   DESKTOP STYLES (1025px and above)
+===================================================== */
+@media (min-width: 1025px) {
+  .navbar__hamburger {
+    display: none;
+  }
+
+  .navbar__menu {
+    display: flex;
+    flex-direction: row;
+    gap: 35px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+/* =====================================================
+   LARGE DESKTOP (1440px and above)
+===================================================== */
+@media (min-width: 1440px) {
+  .navbar__container {
+    padding: 0 40px;
+  }
+
+  .navbar__menu {
+    gap: 40px;
+  }
+
+  .navbar__link {
+    font-size: 1.05rem;
+  }
+}
+
+/* =====================================================
+   ACCESSIBILITY
+===================================================== */
+.navbar__link:focus,
+.navbar__btn:focus,
+.navbar__hamburger:focus {
+  outline: 2px solid #D4AF37;
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
